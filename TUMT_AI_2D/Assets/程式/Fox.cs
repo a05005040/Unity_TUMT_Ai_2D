@@ -7,18 +7,22 @@ public class Fox : MonoBehaviour     //類別
     public string foxname = "狐狸";
     public bool pass = false;
     private Rigidbody2D r2d;
-    
+    private Transform tra;
 
 
     private void Start()             //開始事件       
     {
         r2d = GetComponent<Rigidbody2D>();
+        tra = GetComponent<Transform>();
     }
     private void Update()
     {
-        //Debug.Log(Input.GetAxis("Horizontal"));
-        //r2d.AddForce(new Vector2(speed, 0));
-        float horizontal = Input.GetAxis("Horizontal"); //A D 左右
-        transform.Translate(Vector3.right * horizontal * speed * Time.deltaTime);//A D 左右
+        if (Input.GetKeyDown(KeyCode.D)) tra.eulerAngles = new Vector3(0, 0, 0);
+        if (Input.GetKeyDown(KeyCode.A)) tra.eulerAngles = new Vector3(0, 180, 0);       //翻轉角度
+    }
+    private void FixedUpdate()
+    {
+
+        r2d.AddForce(new Vector2(speed * Input.GetAxis("Horizontal"), 0));
     }
 }
