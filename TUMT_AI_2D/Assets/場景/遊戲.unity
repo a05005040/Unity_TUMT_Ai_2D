@@ -517,6 +517,7 @@ GameObject:
   m_Component:
   - component: {fileID: 611881166}
   - component: {fileID: 611881165}
+  - component: {fileID: 611881167}
   m_Layer: 0
   m_Name: "\u7DF4\u7FD2\u7269\u4EF6"
   m_TagString: Untagged
@@ -550,6 +551,33 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &611881167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 611881164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d886d40d13542a3468767825e49716bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  say: "\u55E8\uFF0C\u4F60\u597D\u55CE?"
+  values:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  scores: 64000000500000005a0000001e00000028000000
+  colors:
+  - {r: 0, g: 0, b: 0, a: 0}
+  - {r: 0, g: 0, b: 0, a: 0}
+  - {r: 0, g: 0, b: 0, a: 0}
+  - {r: 0, g: 0, b: 0, a: 0}
+  - {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &741502301
 GameObject:
   m_ObjectHideFlags: 0
@@ -806,7 +834,7 @@ MonoBehaviour:
   say_start: "\u55E8\u4F60\u597D"
   say_complete: "\u4F60\u9084\u6C92\u627E\u523010\u9846\u6AFB\u6843"
   complete: "\u611F\u8B1D\u4F60\u627E\u523010\u9846\u6AFB\u6843"
-  _state: 0
+  _state: 1
   prop_name: "\u85E5\u6C34"
   speed: 50
   pass: 0

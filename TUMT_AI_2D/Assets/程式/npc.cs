@@ -12,7 +12,7 @@ public class npc : MonoBehaviour
     [Header("道具")]
     public string prop_name = "";
     [Header("對話速度")]
-    public int speed = 50;
+     public float speed = 1.5f;
     [Header("任務相關")]
     public bool pass = false;
     public int Count_player = 0;
@@ -48,17 +48,6 @@ public class npc : MonoBehaviour
         objCanvas.SetActive(true);
         // 文字介面.文字 = 對話1
         textSay.text = say_start;
-    }
-
-    /// <summary>
-    /// 關閉對話
-    /// </summary>
-    private void SayClose()
-    {
-        objCanvas.SetActive(false);
-    }
-    private void Start()
-    {
         switch (_state)
         {
             case state.normal:
@@ -69,9 +58,16 @@ public class npc : MonoBehaviour
                 break;
             case state.comple:
                 textSay.text = complete;
-                break;
-            default:
-                break;
+                break;          
         }
     }
+
+    /// <summary>
+    /// 關閉對話
+    /// </summary>
+    private void SayClose()
+    {
+        objCanvas.SetActive(false);
+    }
+    
 }
