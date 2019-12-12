@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-
+using UnityEngine.Events;           // 引用 事件 API
 public class Fox : MonoBehaviour     //類別
 {
     public int speed = 50;          //
@@ -10,7 +10,7 @@ public class Fox : MonoBehaviour     //類別
     private Transform tra;
     public bool isGround;
 
-
+    public UnityEvent onEat;
     private void Start()             //開始事件       
     {
         r2d = GetComponent<Rigidbody2D>();
@@ -38,6 +38,14 @@ public class Fox : MonoBehaviour     //類別
         isGround = true;
         Debug.Log("碰到" + collision.gameObject);
 
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "櫻桃")
+        {
+            Destroy(collision.gameObject);  // 刪除
+            onEat.Invoke();                 // 呼叫事件
+        }
     }
 
     /// <summary>
