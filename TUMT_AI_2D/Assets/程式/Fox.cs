@@ -11,6 +11,10 @@ public class Fox : MonoBehaviour     //類別
     public bool isGround;
 
     public UnityEvent onEat;
+
+    [Header("血量"),Range(0,200)]
+    public float hp = 100;
+
     private void Start()             //開始事件       
     {
         r2d = GetComponent<Rigidbody2D>();
@@ -64,5 +68,9 @@ public class Fox : MonoBehaviour     //類別
             isGround = false;
             r2d.AddForce(new Vector2(0, jump));
         }
+    }
+    public void Damge(float damge)
+    {
+        hp -= damge;
     }
 }

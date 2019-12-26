@@ -31,13 +31,45 @@ public class Enmey : MonoBehaviour
     /// </summary>
     private void Move()
     {
-        r2d.AddForce(new Vector2(-speed, 0));
+        //r2d.AddForce(new Vector2(-speed, 0));    //世界座標
+        r2d.AddForce(-transform.right*speed);       //區域座標
+        RaycastHit2D hit= Physics2D.Raycast(checkpoint.position,- checkpoint.up, 1.5f, 1 << 8);
+        if (hit==false)
+        {
+            transform.eulerAngles += new Vector3(0, 180, 0);
+        }
     }
-    /// <summary>
-    /// 追蹤
-    /// </summary>
-    private void Track()
-    {
 
+
+   /// <summary>
+   /// 追蹤玩家
+   /// </summary>
+   /// <param name="target">玩家座標</param>
+    private void Track(Vector3 target)
+    {
+        if (target.x < transform.position.x)
+        {
+            transform.eulerAngles = Vector3.zero;
+        }
+        else
+        {
+            transform.eulerAngles = new Vector3(0, 180, 0);
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.name == "狐狸")
+        {
+            collision.gameObject.GetComponent<Fox>().Damge(damge);
+        }
+    }
+
+    public void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.name =="狐狸")
+        {
+            Track(collision.transform.position);
+        }
+        
     }
 }
