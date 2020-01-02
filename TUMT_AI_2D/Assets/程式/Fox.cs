@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;           // 引用 事件 API
+using UnityEngine.UI;
 public class Fox : MonoBehaviour     //類別
 {
     public int speed = 50;          //
@@ -15,10 +16,15 @@ public class Fox : MonoBehaviour     //類別
     [Header("血量"),Range(0,200)]
     public float hp = 100;
 
+
+    public Image hpBar;
+    private float hpMax;
+    public GameObject final;
     private void Start()             //開始事件       
     {
         r2d = GetComponent<Rigidbody2D>();
         tra = GetComponent<Transform>();
+        hpMax = hp;
     }
     private void Update()
     {
@@ -72,5 +78,7 @@ public class Fox : MonoBehaviour     //類別
     public void Damge(float damge)
     {
         hp -= damge;
+        hpBar.fillAmount = hp / hpMax;
+        if (hp <= 0) final.SetActive(true);
     }
 }

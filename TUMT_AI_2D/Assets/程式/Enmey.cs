@@ -66,7 +66,7 @@ public class Enmey : MonoBehaviour
 
     public void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.name =="狐狸")
+        if (collision.name =="狐狸"&&collision.transform.position.y<transform.position.y+1)
         {
             Track(collision.transform.position);
         }

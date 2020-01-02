@@ -1,7 +1,5 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using System.Collections;   // 引用 系統.集合 API
 
 public class LearnArrayfor : MonoBehaviour {
 
@@ -13,7 +11,8 @@ public class LearnArrayfor : MonoBehaviour {
     public int[] scores = { 100, 80, 90, 30, 40 };
 
     public Color[] colors = new Color[5];
-
+    public Transform cubeA, cubeB;
+    public float speed = 3;
     private void Start()
     {
         // 陣列編號從 0 開始
@@ -35,7 +34,10 @@ public class LearnArrayfor : MonoBehaviour {
         }
         StartCoroutine(Test()); // 啟動協程
     }
-
+    public void Update()
+    {
+       
+    }
 
     // 協同程序
     private IEnumerator Test()
